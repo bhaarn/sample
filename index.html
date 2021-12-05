@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>Sample</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <style>
+
+      .jumbotron {
+        background: #337ab7;
+        color: white;
+      }
+
+      .jumbotron p {
+        max-width: 75%;
+        margin: 1em auto 2em;
+      }
+
+      #contact-container {
+        margin-top: 32px;
+      }
+
+      #contact-container p {
+        font-size: 24px;
+        margin: 32px 0;
+      }
+
+      body {font-family: Arial, Helvetica, sans-serif;}
+      * {box-sizing: border-box;}
+
+      input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>Contact Form</h1>
+        <p>Please fill all the below details</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="india">India</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+      </form>
+    </div>
+
+    <main>
+      <div class="container text-center">
+        <div class="row">
+          <button class="btn btn-lg btn-primary">Submit Details</button>
+        </div>
+        <div class="row">
+          <div id="contact-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      (function() {
+        const puns = [
+       /*   "My ceiling isn't the best, but it's up there.",
+          'I got fired from the calendar factory, just for taking a day off.',
+          "Q: What's the best thing about Switzerland? A: Well, the flag is a big plus.",
+          'The past, present, and future walk into a bar. It was tense.',
+          'I tried to make a belt out of watches. It was a waist of time.',
+          "Why can't Harry Potter tell the difference between his potion pot and his best friend? They're both cauld ron.",
+          "I'm afraid of negative numbers. I'll stop at nothing to avoid them.",
+          "Two antennas got married. The ceremony wasn't much, but the reception was excellent.",
+          'RIP boiling water. You will be mist.',
+          'I met a criminal with a bounty on his head. That was a weird place to keep paper towels.',
+          'I did a theatrical performance about puns. It was a play on words.',
+          'Knowing how to pick locks has opened a lot of doors for me.',
+          'I should have been sad when my flashlight batteries died, but I was delighted.',
+          "Santa Claus's elves are subordinate clauses.",
+          "I'm designing a reversible jacket. I'm excited to see how it turns out.", */
+        ];
+        let counter = 0;
+
+        const appendNewPun = () => {
+          const p = document.createElement('p');
+          p.innerHTML = puns[counter++] || "Data Submitted";
+          document.querySelector('#contact-container').prepend(p);
+        }
+
+        const button = document.querySelector('button');
+        button.addEventListener('click', appendNewPun);
+      })();
+    </script>
+
+  </body>
+</html>
